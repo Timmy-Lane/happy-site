@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #4a5568;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #718096;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.welcome-screen {
+  display: block;
+}
+
+.quiz-screen {
+  display: none;
+}
+
+.results-screen {
+  display: none;
+}
+
+.start-btn {
+  background: linear-gradient(45deg, #4299e1, #667eea);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  margin: 20px 0;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+}
+
+.question {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.question h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option {
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.option:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.option.selected {
+  background: #bee3f8;
+  border-color: #4299e1;
+}
+
+.next-btn {
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 20px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.next-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.progress-bar {
+  background: #e2e8f0;
+  height: 8px;
+  border-radius: 4px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(45deg, #4299e1, #667eea);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.business-card {
+  background: linear-gradient(45deg, #2d3748, #4a5568);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.card-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-size: 1.1em;
+  color: #a0aec0;
+  margin-bottom: 10px;
+}
+
+.card-company {
+  font-size: 0.9em;
+  color: #cbd5e0;
+}
+
+.score-display {
+  background: #f0fff4;
+  border: 2px solid #68d391;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.score-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  color: #38a169;
+}
+
+.qr-section {
+  background: #fffaf0;
+  border: 2px solid #f6ad55;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  background: #2d3748;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.fun-facts {
+  background: #f7fafc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  .logo {
+    font-size: 2em;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management Quest: Level 3</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Welcome Screen -->
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="logo">Management Quest</div>
+        <div class="subtitle">Level 3: Презентация Инвесторам</div>
+        <div class="fountain-icon">⛲</div>
+        <p style="margin: 20px 0; color: #4a5568; line-height: 1.6">
+          Переговоры прошли успешно! Теперь самый важный этап - презентация 
+          твоего проекта инвесторам. У тебя есть 5 минут, чтобы произвести впечатление! 🚀
+        </p>
+        <button class="start-btn" onclick="startPitch()">Начать Презентацию</button>
+      </div>
+
+      <!-- Pitch Builder Screen -->
+      <div class="pitch-screen" id="pitchScreen">
+        <div class="timer" id="timer">5:00</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+        </div>
+        <div id="pitchContainer"></div>
+        <div class="action-area" id="actionArea"></div>
+      </div>
+
+      <!-- Presentation Screen -->
+      <div class="presentation-screen" id="presentationScreen">
+        <div class="investor-panel">
+          <div class="investor">👨‍💼 Алексей В.</div>
+          <div class="investor">👩‍💼 Мария К.</div>
+          <div class="investor">👨‍💼 Дмитрий Р.</div>
+        </div>
+        <div id="presentationContent"></div>
+        <button class="continue-btn" id="continueBtn" onclick="nextSlide()">Далее</button>
+      </div>
+
+      <!-- Results Screen -->
+      <div class="results-screen" id="resultsScreen">
+        <div class="logo">Презентация завершена!</div>
+        <div class="funding-result">
+          <div class="funding-amount" id="fundingAmount">$0</div>
+          <div class="funding-label">Получено инвестиций</div>
+          <div id="investorFeedback"></div>
+        </div>
+
+        <div class="business-card">
+          <div class="card-name">Вилина Капитанова</div>
+          <div class="card-title" id="cardTitle">Startup Founder</div>
+          <div class="card-company">Fountain Ventures 💎</div>
+        </div>
+
+        <div class="pitch-analysis" id="pitchAnalysis"></div>
+
+        <div class="qr-section">
+          <h3 style="color: #d69e2e; margin-bottom: 15px">
+            🎯 Финальная станция доступна!
+          </h3>
+          <p style="margin-bottom: 15px">
+            Время возвращаться домой для завершения квеста
+          </p>
+          <div class="qr-code">
+            QR-КОД<br />
+            для станции 4<br />
+            🏠 Домой
+          </div>
+          <p style="margin-top: 15px; font-size: 0.9em; color: #9c4221">
+            Следующий этап ждет дома
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Management Quest: Station 5</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="logo">Management Quest</div>
+        <div class="subtitle">Station 5: Исполнительный Офис</div>
+        <div class="office-icon">🏢</div>
+        <p style="margin: 20px 0; color: #4a5568; line-height: 1.6">
+          Добро пожаловать домой, CEO! Твой личный офис готов к финальным испытаниям. 
+          Пришло время показать все свои управленческие навыки! 💼
+        </p>
+        <button class="start-btn" onclick="enterOffice()">Войти в Офис</button>
+      </div>
+
+      <div class="office-screen" id="officeScreen">
+        <div class="office-header">
+          <h2>🏢 Твой Исполнительный Офис</h2>
+          <p>Время для стратегических решений</p>
+        </div>
+        
+        <div class="office-tasks">
+          <div class="task-card" onclick="startTask('leadership')">
+            <div class="task-icon">👥</div>
+            <h3>Лидерство</h3>
+            <p>Вдохнови команду на новые свершения</p>
+          </div>
+          
+          <div class="task-card" onclick="startTask('strategy')">
+            <div class="task-icon">🎯</div>
+            <h3>Стратегия</h3>
+            <p>Разработай план развития компании</p>
+          </div>
+          
+          <div class="task-card" onclick="startTask('innovation')">
+            <div class="task-icon">💡</div>
+            <h3>Инновации</h3>
+            <p>Найди прорывное решение</p>
+          </div>
+        </div>
+
+        <div class="progress-indicator">
+          <div class="progress-item" id="progress-leadership">👥</div>
+          <div class="progress-item" id="progress-strategy">🎯</div>
+          <div class="progress-item" id="progress-innovation">💡</div>
+        </div>
+      </div>
+
+      <div class="task-screen" id="taskScreen">
+        <div id="taskContent"></div>
+      </div>
+
+      <div class="completion-screen" id="completionScreen">
+        <div class="logo">Офис Покорен!</div>
+        <div class="completion-icon">🎉</div>
+        
+        <div class="executive-summary">
+          <h3>Исполнительное Резюме</h3>
+          <div class="skills-mastered">
+            <div class="skill">✅ Лидерские навыки</div>
+            <div class="skill">✅ Стратегическое мышление</div>
+            <div class="skill">✅ Инновационный подход</div>
+          </div>
+        </div>
+
+        <div class="business-card">
+          <div class="card-name">Вилина Капитанова</div>
+          <div class="card-title">Chief Executive Officer</div>
+          <div class="card-company">Home Success Corp. 🏠</div>
+        </div>
+
+        <div class="qr-section">
+          <h3>🎓 Финальное испытание разблокировано!</h3>
+          <p>Пришло время для защиты диплома</p>
+          <div class="qr-code">
+            QR-КОД<br />
+            для станции 6<br />
+            📚 Диплом
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

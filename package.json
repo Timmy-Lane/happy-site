@@ -1,12 +1,25 @@
 {
-  "name": "happy-site",
+  "name": "graduation-quest-management",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Interactive graduation celebration quest with management themes",
+  "main": "station-1/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server --port=8080 --host=localhost",
+    "build": "echo 'No build process needed for static sites'",
+    "deploy": "echo 'Deploy individual stations to hosting platform of choice'",
+    "test": "echo 'No tests configured yet'"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": [
+    "graduation",
+    "quest",
+    "management", 
+    "celebration",
+    "interactive",
+    "qr-codes"
+  ],
+  "author": "Quest Organizer",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
 }

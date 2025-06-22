@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.container {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  color: #3b82f6;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.fountain-icon {
+  font-size: 4em;
+  margin: 20px 0;
+}
+
+.welcome-screen {
+  display: block;
+}
+
+.pitch-screen {
+  display: none;
+}
+
+.presentation-screen {
+  display: none;
+}
+
+.results-screen {
+  display: none;
+}
+
+.timer {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  color: #10b981;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background: #f0fdf4;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.start-btn {
+  background: linear-gradient(45deg, #3b82f6, #1e40af);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  margin: 20px 0;
+}
+
+.start-btn:hover {
+  transform: translateY(-2px);
+}
+
+.pitch-section {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.section-badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pitch-question {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+  margin-bottom: 25px;
+  color: #1f2937;
+  line-height: 1.4;
+}
+
+.pitch-options {
+  display: grid;
+  gap: 15px;
+}
+
+.pitch-option {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.pitch-option:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e0;
+  transform: translateX(5px);
+}
+
+.pitch-option.selected {
+  background: #dbeafe;
+  border-color: #3b82f6;
+  transform: translateX(10px);
+}
+
+.option-text {
+  font-size: 1em;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.option-impact {
+  font-size: 0.85em;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.build-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 20px;
+  opacity: 0.5;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.build-btn.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.build-btn:hover.active {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.progress-bar {
+  background: #e2e8f0;
+  height: 8px;
+  border-radius: 4px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(45deg, #3b82f6, #1e40af);
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.investor-panel {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.investor {
+  background: #f8fafc;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  border: 2px solid #e2e8f0;
+}
+
+.slide {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 40px;
+  margin: 30px 0;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  font-size: 1.2em;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.continue-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.funding-result {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 25px 0;
+}
+
+.funding-amount {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4em;
+  font-weight: 700;
+  color: #15803d;
+  margin-bottom: 10px;
+}
+
+.funding-label {
+  font-size: 1.1em;
+  color: #16a34a;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.business-card {
+  background: linear-gradient(45deg, #1e40af, #3b82f6);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 25px 0;
+  text-align: left;
+}
+
+.card-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card-title {
+  font-size: 1.1em;
+  color: #bfdbfe;
+  margin-bottom: 10px;
+}
+
+.card-company {
+  font-size: 0.9em;
+  color: #dbeafe;
+}
+
+.pitch-analysis {
+  background: #fffbeb;
+  border: 2px solid #f59e0b;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.qr-section {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 30px 0;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  background: #1f2937;
+  margin: 20px auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  .logo {
+    font-size: 2em;
+  }
+  .pitch-question {
+    font-size: 1.1em;
+  }
+  .funding-amount {
+    font-size: 3em;
+  }
+  .investor-panel {
+    gap: 15px;
+  }
+  .slide {
+    padding: 25px;
+  }
+}

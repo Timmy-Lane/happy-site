@@ -6,12 +6,16 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  background: linear-gradient(135deg, #8b4513 0%, #d2691e 50%, #daa520 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #333;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -28,7 +32,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5em;
   font-weight: 700;
-  color: #065f46;
+  color: #4a5568;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -36,21 +40,45 @@ body {
 
 .subtitle {
   font-size: 1.2em;
-  color: #047857;
-  margin-bottom: 20px;
+  color: #718096;
+  margin-bottom: 30px;
   font-weight: 300;
 }
 
-.park-icon {
-  font-size: 4em;
+.investor-context {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
   margin: 20px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  text-align: left;
+}
+
+.investor-avatar {
+  font-size: 3em;
+  flex-shrink: 0;
+}
+
+.investor-question h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #2d3748;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.investor-question p {
+  color: #4a5568;
+  font-size: 1.05em;
+  line-height: 1.4;
 }
 
 .welcome-screen {
   display: block;
 }
 
-.negotiation-screen {
+.meeting-screen {
   display: none;
 }
 
@@ -59,7 +87,7 @@ body {
 }
 
 .start-btn {
-  background: linear-gradient(45deg, #10b981, #059669);
+  background: linear-gradient(45deg, #d2691e, #daa520);
   color: white;
   border: none;
   padding: 15px 40px;
@@ -69,34 +97,24 @@ body {
   font-weight: 600;
   transition: transform 0.3s ease;
   margin: 20px 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .start-btn:hover {
   transform: translateY(-2px);
 }
 
-.scenario {
+.question {
   margin: 30px 0;
   text-align: left;
 }
 
-.context-badge {
-  display: inline-block;
-  background: #d1fae5;
-  color: #065f46;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: 500;
-  margin-bottom: 15px;
-}
-
-.scenario-text {
+.question h4 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.3em;
-  margin-bottom: 25px;
-  color: #1f2937;
-  line-height: 1.4;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #2d3748;
 }
 
 .options {
@@ -105,50 +123,30 @@ body {
 }
 
 .option {
-  background: #f0fdf4;
-  border: 2px solid #bbf7d0;
-  border-radius: 12px;
-  padding: 18px;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
-  line-height: 1.5;
+  position: relative;
 }
 
 .option:hover {
-  background: #dcfce7;
-  border-color: #86efac;
-  transform: translateX(5px);
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
 }
 
 .option.selected {
-  background: #a7f3d0;
-  border-color: #10b981;
-  transform: translateX(10px);
-}
-
-.feedback {
-  background: #fef3c7;
-  border: 1px solid #f59e0b;
-  border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
-  text-align: left;
-  animation: slideIn 0.5s ease;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.action-buttons {
-  text-align: center;
-  margin-top: 30px;
+  background: #fef5e7;
+  border-color: #d69e2e;
+  box-shadow: 0 4px 12px rgba(214, 158, 46, 0.2);
 }
 
 .next-btn {
-  background: #10b981;
+  background: #d69e2e;
   color: white;
   border: none;
   padding: 12px 30px;
@@ -159,6 +157,9 @@ body {
   opacity: 0.5;
   pointer-events: none;
   transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-height: 44px;
 }
 
 .next-btn.active {
@@ -166,13 +167,13 @@ body {
   pointer-events: auto;
 }
 
-.next-btn:hover.active {
-  background: #059669;
+.next-btn.active:hover {
+  background: #b7791f;
   transform: translateY(-1px);
 }
 
 .progress-bar {
-  background: #d1fae5;
+  background: #e2e8f0;
   height: 8px;
   border-radius: 4px;
   margin: 20px 0;
@@ -180,18 +181,18 @@ body {
 }
 
 .progress-fill {
-  background: linear-gradient(45deg, #10b981, #059669);
+  background: linear-gradient(45deg, #d69e2e, #f6ad55);
   height: 100%;
   transition: width 0.3s ease;
   border-radius: 4px;
 }
 
 .business-card {
-  background: linear-gradient(45deg, #065f46, #047857);
+  background: linear-gradient(45deg, #8b4513, #d2691e);
   color: white;
-  padding: 25px;
+  padding: 20px;
   border-radius: 15px;
-  margin: 25px 0;
+  margin: 20px 0;
   text-align: left;
 }
 
@@ -204,13 +205,13 @@ body {
 
 .card-title {
   font-size: 1.1em;
-  color: #a7f3d0;
+  color: #feebc8;
   margin-bottom: 10px;
 }
 
 .card-company {
   font-size: 0.9em;
-  color: #d1fae5;
+  color: #fed7aa;
 }
 
 .score-display {
@@ -229,19 +230,19 @@ body {
   margin: 10px 0;
 }
 
-.achievement {
-  background: #fef3c7;
-  border: 2px solid #f59e0b;
-  border-radius: 15px;
+.investment-result {
+  background: #fffaf0;
+  border: 2px solid #f6ad55;
+  border-radius: 10px;
   padding: 20px;
-  margin: 25px 0;
+  margin: 20px 0;
   text-align: left;
   line-height: 1.6;
 }
 
 .qr-section {
-  background: #fffbeb;
-  border: 2px solid #f59e0b;
+  background: #fffaf0;
+  border: 2px solid #f6ad55;
   border-radius: 15px;
   padding: 30px;
   margin: 30px 0;
@@ -250,7 +251,7 @@ body {
 .qr-code {
   width: 200px;
   height: 200px;
-  background: #1f2937;
+  background: #2d3748;
   margin: 20px auto;
   border-radius: 10px;
   display: flex;
@@ -259,19 +260,124 @@ body {
   color: white;
   font-size: 0.9em;
   text-align: center;
-  line-height: 1.4;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
-    padding: 20px;
+    padding: 15px;
+    max-width: 95%;
+    margin: 10px auto;
   }
+  
   .logo {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+  }
+  
+  .subtitle {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  .investor-context {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .investor-avatar {
+    align-self: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .investor-question h3 {
+    font-size: 1em;
+    margin-bottom: 8px;
+  }
+  
+  .investor-question p {
+    font-size: 0.95em;
+    line-height: 1.5;
+  }
+  
+  .question h4 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  .start-btn {
+    padding: 12px 30px;
+    font-size: 1em;
+  }
+  
+  .next-btn {
+    padding: 15px 25px;
+    font-size: 1em;
+    margin-top: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .business-card {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .card-name {
+    font-size: 1.3em;
+  }
+  
+  .investment-result {
+    padding: 15px;
+    margin: 15px 0;
+    font-size: 0.95em;
+  }
+  
+  .qr-section {
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .qr-code {
+    width: 180px;
+    height: 180px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+    max-width: 98%;
+  }
+  
+  .logo {
+    font-size: 1.6em;
+  }
+  
+  .subtitle {
+    font-size: 0.9em;
+  }
+  
+  .investor-context {
+    padding: 12px;
+  }
+  
+  .investor-avatar {
     font-size: 2em;
   }
-  .scenario-text {
-    font-size: 1.1em;
+  
+  .investor-question p {
+    font-size: 0.9em;
   }
+  
+  .next-btn {
+    padding: 12px 20px;
+    font-size: 0.9em;
+  }
+  
   .qr-code {
     width: 150px;
     height: 150px;

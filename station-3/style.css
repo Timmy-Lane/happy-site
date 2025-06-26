@@ -6,7 +6,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@ body {
   background: white;
   border-radius: 20px;
   padding: 40px;
-  max-width: 800px;
+  max-width: 700px;
   width: 90%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -28,7 +28,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5em;
   font-weight: 700;
-  color: #1e40af;
+  color: #065f46;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -36,12 +36,12 @@ body {
 
 .subtitle {
   font-size: 1.2em;
-  color: #3b82f6;
+  color: #047857;
   margin-bottom: 20px;
   font-weight: 300;
 }
 
-.fountain-icon {
+.park-icon {
   font-size: 4em;
   margin: 20px 0;
 }
@@ -50,11 +50,7 @@ body {
   display: block;
 }
 
-.pitch-screen {
-  display: none;
-}
-
-.presentation-screen {
+.negotiation-screen {
   display: none;
 }
 
@@ -62,20 +58,8 @@ body {
   display: none;
 }
 
-.timer {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2em;
-  font-weight: 700;
-  color: #10b981;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  background: #f0fdf4;
-  border-radius: 10px;
-  display: inline-block;
-}
-
 .start-btn {
-  background: linear-gradient(45deg, #3b82f6, #1e40af);
+  background: linear-gradient(45deg, #10b981, #059669);
   color: white;
   border: none;
   padding: 15px 40px;
@@ -91,25 +75,23 @@ body {
   transform: translateY(-2px);
 }
 
-.pitch-section {
+.scenario {
   margin: 30px 0;
   text-align: left;
 }
 
-.section-badge {
+.context-badge {
   display: inline-block;
-  background: #dbeafe;
-  color: #1e40af;
+  background: #d1fae5;
+  color: #065f46;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.9em;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.pitch-question {
+.scenario-text {
   font-family: "Montserrat", sans-serif;
   font-size: 1.3em;
   margin-bottom: 25px;
@@ -117,49 +99,56 @@ body {
   line-height: 1.4;
 }
 
-.pitch-options {
+.options {
   display: grid;
-  gap: 15px;
+  gap: 12px;
 }
 
-.pitch-option {
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
+.option {
+  background: #f0fdf4;
+  border: 2px solid #bbf7d0;
   border-radius: 12px;
-  padding: 20px;
+  padding: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
+  line-height: 1.5;
 }
 
-.pitch-option:hover {
-  background: #f1f5f9;
-  border-color: #cbd5e0;
+.option:hover {
+  background: #dcfce7;
+  border-color: #86efac;
   transform: translateX(5px);
 }
 
-.pitch-option.selected {
-  background: #dbeafe;
-  border-color: #3b82f6;
+.option.selected {
+  background: #a7f3d0;
+  border-color: #10b981;
   transform: translateX(10px);
 }
 
-.option-text {
-  font-size: 1em;
-  line-height: 1.5;
-  margin-bottom: 8px;
+.feedback {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  text-align: left;
+  animation: slideIn 0.5s ease;
 }
 
-.option-impact {
-  font-size: 0.85em;
-  color: #6b7280;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.build-btn {
-  background: #3b82f6;
+.action-buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.next-btn {
+  background: #10b981;
   color: white;
   border: none;
   padding: 12px 30px;
@@ -172,18 +161,18 @@ body {
   transition: all 0.3s ease;
 }
 
-.build-btn.active {
+.next-btn.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.build-btn:hover.active {
-  background: #2563eb;
+.next-btn:hover.active {
+  background: #059669;
   transform: translateY(-1px);
 }
 
 .progress-bar {
-  background: #e2e8f0;
+  background: #d1fae5;
   height: 8px;
   border-radius: 4px;
   margin: 20px 0;
@@ -191,87 +180,14 @@ body {
 }
 
 .progress-fill {
-  background: linear-gradient(45deg, #3b82f6, #1e40af);
+  background: linear-gradient(45deg, #10b981, #059669);
   height: 100%;
   transition: width 0.3s ease;
   border-radius: 4px;
 }
 
-.investor-panel {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.investor {
-  background: #f8fafc;
-  padding: 15px 20px;
-  border-radius: 10px;
-  font-weight: 500;
-  border: 2px solid #e2e8f0;
-}
-
-.slide {
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-radius: 15px;
-  padding: 40px;
-  margin: 30px 0;
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide-content {
-  font-size: 1.2em;
-  line-height: 1.6;
-  text-align: center;
-}
-
-.continue-btn {
-  background: #3b82f6;
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.continue-btn:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-}
-
-.funding-result {
-  background: #f0fdf4;
-  border: 2px solid #22c55e;
-  border-radius: 15px;
-  padding: 30px;
-  margin: 25px 0;
-}
-
-.funding-amount {
-  font-family: "Montserrat", sans-serif;
-  font-size: 4em;
-  font-weight: 700;
-  color: #15803d;
-  margin-bottom: 10px;
-}
-
-.funding-label {
-  font-size: 1.1em;
-  color: #16a34a;
-  margin-bottom: 15px;
-  font-weight: 500;
-}
-
 .business-card {
-  background: linear-gradient(45deg, #1e40af, #3b82f6);
+  background: linear-gradient(45deg, #065f46, #047857);
   color: white;
   padding: 25px;
   border-radius: 15px;
@@ -288,27 +204,43 @@ body {
 
 .card-title {
   font-size: 1.1em;
-  color: #bfdbfe;
+  color: #a7f3d0;
   margin-bottom: 10px;
 }
 
 .card-company {
   font-size: 0.9em;
-  color: #dbeafe;
+  color: #d1fae5;
 }
 
-.pitch-analysis {
-  background: #fffbeb;
-  border: 2px solid #f59e0b;
+.score-display {
+  background: #f0fdf4;
+  border: 2px solid #22c55e;
   border-radius: 15px;
   padding: 25px;
+  margin: 25px 0;
+}
+
+.score-number {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.5em;
+  font-weight: 700;
+  color: #15803d;
+  margin: 10px 0;
+}
+
+.achievement {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 15px;
+  padding: 20px;
   margin: 25px 0;
   text-align: left;
   line-height: 1.6;
 }
 
 .qr-section {
-  background: #fef3c7;
+  background: #fffbeb;
   border: 2px solid #f59e0b;
   border-radius: 15px;
   padding: 30px;
@@ -337,16 +269,11 @@ body {
   .logo {
     font-size: 2em;
   }
-  .pitch-question {
+  .scenario-text {
     font-size: 1.1em;
   }
-  .funding-amount {
-    font-size: 3em;
-  }
-  .investor-panel {
-    gap: 15px;
-  }
-  .slide {
-    padding: 25px;
+  .qr-code {
+    width: 150px;
+    height: 150px;
   }
 }

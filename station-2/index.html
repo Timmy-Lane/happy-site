@@ -15,43 +15,45 @@
       <!-- Welcome Screen -->
       <div class="welcome-screen" id="welcomeScreen">
         <div class="logo">Management Quest</div>
-        <div class="subtitle">Level 2: Переговоры в Парке</div>
-        <div class="park-icon">🏞️</div>
-        <p style="margin: 20px 0; color: #4a5568; line-height: 1.6">
-          Отлично! Ты прошла стартап-инкубатор. Теперь тебя ждут сложные
-          переговоры с партнерами в расслабленной атмосфере парка. Покажи свои
-          навыки дипломатии! 💼
+        <div class="subtitle">Level 2: Встреча в Flask</div>
+        <p style="margin: 20px 0; color: #4a5568; line-height: 1.5">
+          Отлично! Ты прошла первый уровень! Теперь тебя ждет встреча с
+          серьезным инвестором))) в уютной кофейне Flask. Тима будет играть роль
+          инвестора и задавать тебе вопросы о том, почему он должен вложить
+          деньги в твое управление кофейней. Убеди его! ☕💰
         </p>
-        <button class="start-btn" onclick="startNegotiation()">
-          Начать Переговоры
+        <button class="start-btn" onclick="startInvestorMeeting()">
+          Начать Встречу
         </button>
       </div>
 
-      <!-- Negotiation Screen -->
-      <div class="negotiation-screen" id="negotiationScreen">
+      <!-- Investor Meeting Screen -->
+      <div class="meeting-screen" id="meetingScreen">
         <div class="progress-bar">
           <div class="progress-fill" id="progressBar" style="width: 0%"></div>
         </div>
-        <div id="scenarioContainer"></div>
-        <div class="action-buttons" id="actionButtons"></div>
+        <div id="questionContainer"></div>
+        <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+          Ответить
+        </button>
       </div>
 
       <!-- Results Screen -->
       <div class="results-screen" id="resultsScreen">
-        <div class="logo">Переговоры завершены!</div>
+        <div class="logo">Встреча завершена!</div>
         <div class="score-display">
-          <div>Эффективность переговоров:</div>
+          <div>Уровень убедительности:</div>
           <div class="score-number" id="finalScore">0</div>
           <div id="scoreComment"></div>
         </div>
 
         <div class="business-card">
           <div class="card-name">Вилина Капитанова</div>
-          <div class="card-title" id="cardTitle">Negotiation Specialist</div>
-          <div class="card-company">Park Ventures Ltd. 🌳</div>
+          <div class="card-title" id="cardTitle">Coffee Shop CEO</div>
+          <div class="card-company">Flask Management Solutions ☕</div>
         </div>
 
-        <div class="achievement" id="achievement"></div>
+        <div class="investment-result" id="investmentResult"></div>
 
         <div class="qr-section">
           <h3 style="color: #d69e2e; margin-bottom: 15px">
@@ -61,15 +63,22 @@
             Направляйтесь к фонтану для презентации инвесторам
           </p>
           <div class="qr-code">
-            <img
-              src="station-3.png"
-              alt="QR код для станции 3"
-              style="width: 180px; height: 180px; border-radius: 8px"
-            />
+            <a
+              href="https://timmy-lane.github.io/happy-site/station-3/"
+              style="
+                color: white;
+                text-decoration: none;
+                font-size: 1.2em;
+                font-weight: 600;
+              "
+            >
+              🎯 СТАНЦИЯ 3<br />
+              ⛲ Парк<br />
+              <span style="font-size: 0.9em; margin-top: 10px; display: block"
+                >👆 Нажми для перехода</span
+              >
+            </a>
           </div>
-          <p style="margin-top: 15px; font-size: 0.9em; color: #9c4221">
-            Покажите этот QR-код у фонтана
-          </p>
         </div>
       </div>
     </div>

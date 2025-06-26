@@ -1,180 +1,85 @@
-const negotiations = [
-  {
-    scenario: "Партнер предлагает снизить бюджет проекта на 30%, но сохранить все требования. Как поведешь переговоры?",
-    context: "💰 Бюджетные переговоры",
-    options: [
-      "Соглашаюсь, но прошу компенсировать риски дополнительными ресурсами",
-      "Предлагаю пересмотреть scope проекта под новый бюджет",
-      "Объясняю, почему текущий бюджет оптимален, и ищу компромисс",
-      "Категорически отказываюсь обсуждать снижение бюджета"
-    ],
-    scores: [7, 10, 9, 3],
-    feedback: [
-      "Хорошая стратегия, но рискованно брать на себя дополнительные обязательства",
-      "Отличный подход! Ты показываешь гибкость и профессионализм",
-      "Очень дипломатично! Ты умеешь отстаивать позицию с уважением",
-      "Слишком жестко. В переговорах важна гибкость"
-    ]
-  },
-  {
-    scenario: "Во время встречи выясняется, что у партнера кардинально другое видение проекта. Твои действия?",
-    context: "🔄 Конфликт видений",
-    options: [
-      "Прерываю встречу и предлагаю перенести на другой день",
-      "Выясняю корень различий и ищу общие цели",
-      "Настаиваю на своем видении как более правильном",
-      "Предлагаю создать гибридное решение"
-    ],
-    scores: [4, 10, 2, 8],
-    feedback: [
-      "Иногда пауза полезна, но лучше решать вопросы на месте",
-      "Превосходно! Ты идешь к корню проблемы",
-      "Такой подход может разрушить отношения",
-      "Хорошая идея, но важно сначала понять различия"
-    ]
-  },
-  {
-    scenario: "Партнер постоянно отвлекается на телефон во время важного обсуждения. Как реагируешь?",
-    context: "📱 Проблемы с вниманием",
-    options: [
-      "Делаю вид, что не замечаю, и продолжаю презентацию",
-      "Прямо говорю о важности полного внимания к обсуждению",
-      "Предлагаю короткий перерыв",
-      "Спрашиваю, может ли он решить срочные вопросы"
-    ],
-    scores: [3, 8, 9, 10],
-    feedback: [
-      "Игнорирование проблемы не поможет решить её",
-      "Прямолинейно, но может показаться резким",
-      "Мудрое решение! Даёшь возможность перегруппироваться",
-      "Отлично! Проявляешь понимание и гибкость"
-    ]
-  },
-  {
-    scenario: "Партнер предлагает условия, которые явно выгодны только ему. Твоя стратегия?",
-    context: "⚖️ Несправедливые условия",
-    options: [
-      "Указываю на неравенство и предлагаю более сбалансированные условия",
-      "Соглашаюсь, чтобы не портить отношения",
-      "Предлагаю альтернативную схему взаимодействия",
-      "Задаю вопросы, чтобы понять его мотивацию"
-    ],
-    scores: [9, 2, 8, 10],
-    feedback: [
-      "Правильно отстаиваешь интересы! Прямо и честно",
-      "Такие уступки могут навредить проекту в долгосрочной перспективе",
-      "Креативный подход! Ищешь win-win решения",
-      "Мастерски! Понимание мотивов - ключ к успешным переговорам"
-    ]
-  }
+const investorQuestions = [
+  "Почему я должен инвестировать именно в твое управление Flask, а не в другую кофейню? Например: Vanilla",
+  "Как ты планируешь увеличить прибыльность Flask в первые 6 месяцев?",
+  "Flask столкнулся с серьезной конкуренцией от новых кофеен. Твоя стратегия?",
+  "В Flask работает команда из n человек. Как ты мотивируешь персонал работать эффективно?",
+  "У Flask есть постоянные клиенты, но мало новых. Как привлечь молодую аудиторию?",
+  "Как ты будешь измерять успех своего управления Flask?",
 ];
 
-let currentScenario = 0;
-let totalScore = 0;
-let answers = [];
+let currentQuestion = 0;
 
-function startNegotiation() {
+function startInvestorMeeting() {
   document.getElementById("welcomeScreen").style.display = "none";
-  document.getElementById("negotiationScreen").style.display = "block";
-  showScenario();
+  document.getElementById("meetingScreen").style.display = "block";
+  showQuestion();
 }
 
-function showScenario() {
-  const scenario = negotiations[currentScenario];
-  const container = document.getElementById("scenarioContainer");
-  
+function showQuestion() {
+  const question = investorQuestions[currentQuestion];
+  const container = document.getElementById("questionContainer");
+
   container.innerHTML = `
-    <div class="scenario">
-      <div class="context-badge">${scenario.context}</div>
-      <h3 class="scenario-text">${scenario.scenario}</h3>
-      <div class="options" id="options">
-        ${scenario.options.map((option, index) => 
-          `<div class="option" onclick="selectOption(${index})" data-index="${index}">
-            ${option}
-          </div>`
-        ).join('')}
+    <div class="investor-context">
+      <div class="investor-avatar">👨‍💼</div>
+      <div class="investor-question">
+        <h3>Инвестор спрашивает:</h3>
+        <p>"${question}"</p>
       </div>
     </div>
+    <div class="question">
+      <h4>Время для свободного ответа!</h4>
+      <p style="margin: 15px 0; color: #666; font-style: italic;">
+        Вилина может отвечать устно, а потом нажать "Далее" для следующего вопроса.
+      </p>
+    </div>
   `;
-  
-  document.getElementById("actionButtons").innerHTML = `
-    <button class="next-btn" id="nextBtn" onclick="nextScenario()">
-      ${currentScenario < negotiations.length - 1 ? 'Следующий сценарий' : 'Завершить переговоры'}
-    </button>
-  `;
-  
+
   updateProgress();
+  updateNextButton();
 }
 
-function selectOption(index) {
-  const options = document.querySelectorAll(".option");
-  options.forEach(opt => opt.classList.remove("selected"));
-  options[index].classList.add("selected");
-  
-  answers[currentScenario] = index;
-  document.getElementById("nextBtn").classList.add("active");
-  
-  // Show feedback
-  const scenario = negotiations[currentScenario];
-  const feedback = scenario.feedback[index];
-  
-  setTimeout(() => {
-    const feedbackDiv = document.createElement("div");
-    feedbackDiv.className = "feedback";
-    feedbackDiv.innerHTML = `<strong>Обратная связь:</strong> ${feedback}`;
-    document.getElementById("scenarioContainer").appendChild(feedbackDiv);
-  }, 500);
+function updateNextButton() {
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.classList.add("active");
+
+  if (currentQuestion === investorQuestions.length - 1) {
+    nextBtn.textContent = "Завершить встречу";
+  } else {
+    nextBtn.textContent = "Следующий вопрос";
+  }
 }
 
-function nextScenario() {
-  if (answers[currentScenario] === undefined) return;
-  
-  totalScore += negotiations[currentScenario].scores[answers[currentScenario]];
-  currentScenario++;
-  
-  if (currentScenario < negotiations.length) {
-    showScenario();
-    document.getElementById("nextBtn").classList.remove("active");
+function nextQuestion() {
+  currentQuestion++;
+
+  if (currentQuestion < investorQuestions.length) {
+    showQuestion();
   } else {
     showResults();
   }
 }
 
 function updateProgress() {
-  const progress = ((currentScenario + 1) / negotiations.length) * 100;
+  const progress = ((currentQuestion + 1) / investorQuestions.length) * 100;
   document.getElementById("progressBar").style.width = progress + "%";
 }
 
 function showResults() {
-  document.getElementById("negotiationScreen").style.display = "none";
+  document.getElementById("meetingScreen").style.display = "none";
   document.getElementById("resultsScreen").style.display = "block";
-  
-  const maxScore = negotiations.reduce((sum, n) => sum + Math.max(...n.scores), 0);
-  const percentage = Math.round((totalScore / maxScore) * 100);
-  
-  document.getElementById("finalScore").textContent = percentage + "%";
-  
-  let title, comment, achievement;
-  
-  if (percentage >= 90) {
-    title = "Master Negotiator";
-    comment = "Невероятные навыки дипломатии! 🏆";
-    achievement = "🎖️ Достижение разблокировано: 'Дипломат года'<br>Твои переговорные навыки на высшем уровне!";
-  } else if (percentage >= 75) {
-    title = "Senior Diplomat";
-    comment = "Отличное чувство баланса! 🤝";
-    achievement = "🌟 Достижение разблокировано: 'Мастер компромиссов'<br>Ты умеешь находить решения, выгодные всем сторонам.";
-  } else if (percentage >= 60) {
-    title = "Negotiation Specialist";
-    comment = "Хорошие навыки общения! 💬";
-    achievement = "📈 Достижение разблокировано: 'Восходящая звезда'<br>Твои переговорные навыки уверенно развиваются.";
-  } else {
-    title = "Future Diplomat";
-    comment = "Есть потенциал для роста! 🌱";
-    achievement = "🎯 Достижение разблокировано: 'Первые шаги'<br>Каждый великий переговорщик начинал с основ.";
-  }
-  
+
+  // Remove score display
+  document.getElementById("finalScore").textContent = "✅";
+
+  const title = "Flask CEO";
+  const comment = "Встреча успешно завершена! 🎉";
+  const investmentResult =
+    "Отличная работа! Ты прошла через все вопросы инвестора и продемонстрировала свои управленческие способности. Теперь ты готова к следующему этапу твоего квеста!";
+
   document.getElementById("cardTitle").textContent = title;
   document.getElementById("scoreComment").textContent = comment;
-  document.getElementById("achievement").innerHTML = achievement;
+  document.getElementById(
+    "investmentResult"
+  ).innerHTML = `<strong>Результат встречи:</strong><br>${investmentResult}`;
 }

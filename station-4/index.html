@@ -15,98 +15,96 @@
       <!-- Welcome Screen -->
       <div class="welcome-screen" id="welcomeScreen">
         <div class="logo">Management Quest</div>
-        <div class="subtitle">Level 4: Корпоративный Успех</div>
-        <div class="success-icon">🏆</div>
+        <div class="subtitle">Level 4: Retail Revolution</div>
+        <div class="retail-icon">🛍️</div>
         <p style="margin: 20px 0; color: #4a5568; line-height: 1.6">
-          Поздравляем! Ты успешно прошла все испытания на улице. Пора
-          возвращаться домой для финальных этапов твоего квеста! 🎉
+          Добро пожаловать в финальный внешний этап! Тебя ждет роль тайного покупателя и бизнес-консультанта. 
+          Проанализируй магазин спортивных товаров и предложи стратегические улучшения. Покажи свои навыки розничного анализа! 🔍
         </p>
-        <button class="start-btn" onclick="startTransition()">
-          Завершить Уличный Квест
+        <button class="start-btn" onclick="startAnalysis()">
+          Начать Анализ
         </button>
       </div>
 
-      <!-- Transition Screen -->
-      <div class="transition-screen" id="transitionScreen">
-        <div class="achievement-unlock">
-          <div class="trophy">🏆</div>
-          <h2>Достижение разблокировано!</h2>
-          <div class="achievement-title">"Мастер Городских Вызовов"</div>
-          <p>Ты успешно прошла все испытания на улицах города!</p>
+      <!-- Checklist Screen -->
+      <div class="checklist-screen" id="checklistScreen">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar" style="width: 20%"></div>
         </div>
-
-        <div class="summary-stats">
-          <div class="stat">
-            <div class="stat-number" id="totalStations">3</div>
-            <div class="stat-label">Станций пройдено</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number" id="totalTime">~2ч</div>
-            <div class="stat-label">Время в пути</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number" id="skillsGained">12</div>
-            <div class="stat-label">Навыков освоено</div>
-          </div>
+        
+        <h2 style="font-family: Montserrat; color: #1e40af; margin-bottom: 20px;">
+          🔍 Mystery Shopper Checklist
+        </h2>
+        
+        <div id="checklistContainer">
+          <!-- Categories will be populated by JavaScript -->
         </div>
-
-        <button class="continue-btn" onclick="showHomeInstructions()">
-          Продолжить
+        
+        <button class="next-btn" id="checklistNextBtn" onclick="goToRecommendations()">
+          Перейти к Рекомендациям
         </button>
       </div>
 
-      <!-- Home Instructions Screen -->
-      <div class="home-screen" id="homeScreen">
-        <div class="logo">Время домой!</div>
-        <div class="home-icon">🏠</div>
+      <!-- Recommendations Screen -->
+      <div class="recommendations-screen" id="recommendationsScreen">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressBar2" style="width: 70%"></div>
+        </div>
+        
+        <h2 style="font-family: Montserrat; color: #1e40af; margin-bottom: 20px;">
+          💡 Стратегические Рекомендации
+        </h2>
+        
+        <div id="recommendationsContainer">
+          <!-- Recommendations forms will be populated by JavaScript -->
+        </div>
+        
+        <button class="next-btn" id="recsNextBtn" onclick="generateReport()">
+          Создать Отчет
+        </button>
+      </div>
 
-        <div class="instructions">
-          <h3>Финальные испытания ждут дома</h3>
-          <div class="instruction-list">
-            <div class="instruction">
-              <span class="step">5</span>
-              <div class="step-info">
-                <strong>Исполнительный Офис</strong>
-                <p>Особое испытание у входа в дом</p>
-              </div>
-            </div>
-            <div class="instruction">
-              <span class="step">6</span>
-              <div class="step-info">
-                <strong>Защита Диплома</strong>
-                <p>Финальный экзамен твоих знаний</p>
-              </div>
-            </div>
-            <div class="instruction">
-              <span class="step">7</span>
-              <div class="step-info">
-                <strong>Церемония Вручения</strong>
-                <p>Торжественное завершение квеста</p>
-              </div>
-            </div>
-          </div>
+      <!-- Results Screen -->
+      <div class="results-screen" id="resultsScreen">
+        <div class="logo">Анализ Завершен!</div>
+        <div class="score-display">
+          <div>Средняя оценка магазина:</div>
+          <div class="score-number" id="finalScore">0</div>
+          <div id="scoreComment"></div>
         </div>
 
-        <div class="motivation">
-          <p>🌟 Ты отлично справилась с городскими вызовами!</p>
-          <p>Теперь тебя ждет особенная домашняя программа!</p>
+        <div class="business-card">
+          <div class="card-name">Вилина Капитанова</div>
+          <div class="card-title" id="cardTitle">Retail Strategy Consultant</div>
+          <div class="card-company">Strategic Retail Solutions 🛍️</div>
         </div>
+
+        <div class="analysis-result" id="analysisResult"></div>
 
         <div class="qr-section">
           <h3 style="color: #d69e2e; margin-bottom: 15px">
-            🏠 Домашние станции активированы!
+            🎯 Финальный этап разблокирован!
           </h3>
-          <p style="margin-bottom: 15px">Найди первый QR-код у входа в дом</p>
+          <p style="margin-bottom: 15px">
+            Поздравляем! Время возвращаться домой для грандиозного финала!
+          </p>
           <div class="qr-code">
-            <a href="https://timmy-lane.github.io/happy-site/home-stations/station-5/" style="color: white; text-decoration: none; font-size: 1.2em; font-weight: 600;">
+            <a
+              href="https://timmy-lane.github.io/happy-site/home-stations/station-5/"
+              style="
+                color: white;
+                text-decoration: none;
+                font-size: 1.2em;
+                font-weight: 600;
+              "
+            >
               🎯 СТАНЦИЯ 5<br />
-              🚪 У двери<br />
-              <span style="font-size: 0.9em; margin-top: 10px; display: block;">👆 Нажми для перехода</span>
+              🏠 Домой!<br />
+              <span style="font-size: 0.9em; margin-top: 10px; display: block"
+                >👆 Нажми для перехода</span
+              >
             </a>
           </div>
-          <p style="margin-top: 15px; font-size: 0.9em; color: #9c4221">
-            Ищи следующий QR-код дома!
-          </p>
         </div>
       </div>
     </div>

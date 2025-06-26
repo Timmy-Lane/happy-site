@@ -50,6 +50,48 @@ body {
   display: block;
 }
 
+.map-screen {
+  display: none;
+}
+
+.map-container {
+  margin: 20px 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.park-map {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.park-map:hover {
+  transform: scale(1.02);
+}
+
+.continue-btn {
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+  margin: 20px 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+}
+
 .negotiation-screen {
   display: none;
 }
@@ -262,16 +304,73 @@ body {
   line-height: 1.4;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
-    padding: 20px;
+    padding: 15px;
+    max-width: 95%;
+    margin: 10px auto;
   }
+  
   .logo {
-    font-size: 2em;
+    font-size: 1.8em;
+    margin-bottom: 5px;
   }
+  
+  .subtitle {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  
+  .park-map {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  
+  .map-container {
+    margin: 15px 0;
+    border-radius: 10px;
+  }
+  
+  .continue-btn {
+    padding: 12px 30px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 280px;
+  }
+  
   .scenario-text {
     font-size: 1.1em;
   }
+  
+  .qr-code {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+    max-width: 98%;
+  }
+  
+  .logo {
+    font-size: 1.6em;
+  }
+  
+  .subtitle {
+    font-size: 0.9em;
+  }
+  
+  .park-map {
+    border-radius: 8px;
+  }
+  
+  .continue-btn {
+    padding: 12px 20px;
+    font-size: 0.9em;
+  }
+  
   .qr-code {
     width: 150px;
     height: 150px;

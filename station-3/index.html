@@ -27,6 +27,32 @@
         </button>
       </div>
 
+      <!-- Map Screen -->
+      <div class="map-screen" id="mapScreen">
+        <div class="logo">Карта Переговоров</div>
+        <div class="subtitle">Изучите территорию парка</div>
+        <div class="map-container">
+          <img
+            src="map-of-lake.png"
+            alt="Карта парка с озером"
+            class="park-map"
+          />
+        </div>
+        <p
+          style="
+            margin: 20px 0;
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: center;
+          "
+        >
+          Ознакомьтесь с картой и найдите лучшее место для переговоров! 🗺️
+        </p>
+        <button class="continue-btn" onclick="startActualNegotiation()">
+          Продолжить
+        </button>
+      </div>
+
       <!-- Negotiation Screen -->
       <div class="negotiation-screen" id="negotiationScreen">
         <div class="progress-bar">
@@ -71,15 +97,12 @@
               "
             >
               🎯 СТАНЦИЯ 4<br />
-              🏠 Домой<br />
+              🏠 Место Спавна<br />
               <span style="font-size: 0.9em; margin-top: 10px; display: block"
                 >👆 Нажми для перехода</span
               >
             </a>
           </div>
-          <p style="margin-top: 15px; font-size: 0.9em; color: #9c4221">
-            Покажите этот QR-код у фонтана
-          </p>
         </div>
       </div>
     </div>
